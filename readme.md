@@ -19,3 +19,7 @@ createElement(<HTML Tag>, {Property}, <Content>);
 <HTML Tag>: 내용을 삽입하고 싶은 HTML Tag을 기입
 {Property}: Event Listener, id, class, Style 등을 기입
 <Content>: 표시하고 싶은 내용을 기입
+
+JSX:
+컴포넌트의 첫글자는 반드시 대문자일 것.
+소문자라면 JSX는 HTML 태그로 인식함.
