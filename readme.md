@@ -23,3 +23,9 @@ createElement(<HTML Tag>, {Property}, <Content>);
 JSX:
 컴포넌트의 첫글자는 반드시 대문자일 것.
 소문자라면 JSX는 HTML 태그로 인식함.
+
+이벤트 리스너를 통해 데이터를 갱신할 때...
+Vanila: 데이터가 포함된 부분들이 전부 갱신
+(ex. body - div 에 태그가 있을 때, body와 div가 전부 갱신됨)
+React.js: 바뀐 부분만 갱신함
+기존 렌더링과 다음 렌더링의 차이 부분만 갱신하는 것.
