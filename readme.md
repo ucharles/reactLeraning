@@ -29,3 +29,8 @@ Vanila: 데이터가 포함된 부분들이 전부 갱신
 (ex. body - div 에 태그가 있을 때, body와 div가 전부 갱신됨)
 React.js: 바뀐 부분만 갱신함
 기존 렌더링과 다음 렌더링의 차이 부분만 갱신하는 것.
+
+const [state, modifier] = React.useState(<state>);
+modifier로 state의 내용을 바꿀 때, 전체 컴포넌트가 재렌더링됨.
+
+[Hook의 규칙](https://ko.reactjs.org/docs/hooks-rules.html#explanation)
