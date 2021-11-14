@@ -1,13 +1,16 @@
 # React.js
+
 도구의 등장 배경을 이해하자. 이 도구로 무슨 문제를 해결하려 했는가?
 
 ### Vanila
+
 1. HTML 요소를 만들고
 2. 이벤트 리스너로 동작을 읽음
 3. JS에서 데이터 갱신을 한 뒤
 4. HTML 갱신
 
 ### React
+
 1. JS(React)에서 HTML 생성
 2. HTML 갱신
 
@@ -16,6 +19,7 @@ React DOM은 모든 React Element를 HTML Body에 놓을 수 있게 해줌.
 !React의 동작 본질을 이해해야 한다!
 
 createElement(<HTML Tag>, {Property}, <Content>);
+
 <HTML Tag>: 내용을 삽입하고 싶은 HTML Tag을 기입
 {Property}: Event Listener, id, class, Style 등을 기입
 <Content>: 표시하고 싶은 내용을 기입
@@ -34,3 +38,8 @@ const [state, modifier] = React.useState(<state>);
 modifier로 state의 내용을 바꿀 때, 전체 컴포넌트가 재렌더링됨.
 
 [Hook의 규칙](https://ko.reactjs.org/docs/hooks-rules.html#explanation)
+
+HTML이 아닌 JSX를 사용하고 있으므로, 차이점을 알아야함.
+HTML JSX
+class className
+for forHtml
