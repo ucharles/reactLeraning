@@ -14,3 +14,8 @@
 React는 엔진. HTML을 인터랙티브하게 만들어주는 라이브러리.
 React DOM은 모든 React Element를 HTML Body에 놓을 수 있게 해줌.
 !React의 동작 본질을 이해해야 한다!
+
+createElement(<HTML Tag>, {Property}, <Content>);
+<HTML Tag>: 내용을 삽입하고 싶은 HTML Tag을 기입
+{Property}: Event Listener, id, class, Style 등을 기입
+<Content>: 표시하고 싶은 내용을 기입
