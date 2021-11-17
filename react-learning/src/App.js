@@ -1,37 +1,34 @@
 import { useState, useEffect } from "react";
 
-function App() {
-  const [counter, setValue] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onClick = () => {
-    setValue((prev) => prev + 1);
-  };
-  const onChange = (event) => {
-    setKeyword(event.target.value);
-  };
-  console.log("i run all the time");
+// useState로 컴포넌트를 아예 삭제하거나, 다시 만들 수 있음.
+// 컴포넌트가 파괴될 때도 코드를 실행시킬 수 있음.
+
+function Hello() {
+  function byeFn() {
+    console.log("byebye");
+  }
   useEffect(() => {
-    console.log("i run only once");
+    // 사람들이 주로 씀
+    console.log("hello");
+    return () => console.log("goodbye");
+  });
+  useEffect(() => {
+    // 사람들이 잘 안씀
+    console.log("hi: ");
+    return function () {
+      console.log("bye:");
+    };
   }, []);
-  useEffect(() => {
-    console.log("Search for", keyword);
-  }, [keyword]);
-  useEffect(() => {
-    console.log("i run 'counter' changes");
-  }, [counter]);
-  useEffect(() => {
-    console.log("running keyword & counter");
-  }, [keyword, counter]);
+  return <h1>Hello</h1>;
+}
+
+function App() {
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((prev) => !prev);
   return (
     <div>
-      <input
-        value={keyword}
-        onChange={onChange}
-        type="text"
-        placeholder="Search here..."
-      />
-      <h1>{counter}</h1>
-      <button onClick={onClick}>increase</button>
+      {showing ? <Hello /> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </div>
   );
 }
