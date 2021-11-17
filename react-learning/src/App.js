@@ -1,34 +1,38 @@
-import { useState, useEffect } from "react";
-
-// useState로 컴포넌트를 아예 삭제하거나, 다시 만들 수 있음.
-// 컴포넌트가 파괴될 때도 코드를 실행시킬 수 있음.
-
-function Hello() {
-  function byeFn() {
-    console.log("byebye");
-  }
-  useEffect(() => {
-    // 사람들이 주로 씀
-    console.log("hello");
-    return () => console.log("goodbye");
-  });
-  useEffect(() => {
-    // 사람들이 잘 안씀
-    console.log("hi: ");
-    return function () {
-      console.log("bye:");
-    };
-  }, []);
-  return <h1>Hello</h1>;
-}
-
+import { useState } from "react";
 function App() {
-  const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing((prev) => !prev);
+  const [toDo, setToDo] = useState("");
+  const [toDos, setToDos] = useState([]);
+  // State를 직접 수정하는 코드를 쓰지 말 것!!
+  // State를 수정할 땐 함수를 쓰자!
+  const onChange = (event) => setToDo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (toDo === "") {
+      return;
+    }
+    // useState의 함수 인수를 사용하는 법
+    setToDos((currentArray) => [toDo, ...currentArray]); // 값을 설정하기
+    setToDo(""); // 값을 보내기
+  };
+  console.log(toDos);
   return (
     <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+      <h1>My Todos ({toDos.length})</h1>
+      <form>
+        <input
+          onChange={onChange}
+          value={toDo}
+          type="text"
+          placeholder="Write your to do..."
+        />
+        <button onClick={onSubmit}>Add To Do</button>
+      </form>
+      <hr />
+      <ul>
+        {toDos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
