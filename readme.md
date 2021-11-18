@@ -2,7 +2,7 @@
 
 도구의 등장 배경을 이해하자. 이 도구로 무슨 문제를 해결하려 했는가?
 
-### Vanila
+### Vanilla
 
 1. HTML 요소를 만들고
 2. 이벤트 리스너로 동작을 읽음
@@ -36,6 +36,13 @@ React.js: 바뀐 부분만 갱신함<br/>
 
 const [state, modifier] = React.useState(<state>);<br/>
 modifier로 state의 내용을 바꿀 때, 전체 컴포넌트가 재렌더링됨.<br/>
+state를 직접 수정하는 코드는 쓰지 말것!!!!<br/>
+State를 수정할 땐 함수(modifier)를 쓰자<br/>
+useState의 함수 인수를 사용하는 법..
+setToDos((currentArray) => [toDo, ...currentArray]); // 값을 설정하기
+setToDo(""); // 값을 보내기
+
+실험) 예를들어.. 첫번째 useState의 state를 두번째 useState의 modifier로 바꾸려고 하면.. 안됨..안바뀜..
 
 [Hook의 규칙](https://ko.reactjs.org/docs/hooks-rules.html#explanation)<br/>
 
